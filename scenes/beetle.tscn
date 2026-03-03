@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs3tkvtrwi5au"]
+
+[ext_resource type="Script" path="res://scripts/beetle.gd" id="1_0xnko"]
+[ext_resource type="Texture2D" uid="uid://b51t47pgirywy" path="res://imports/beetlybeetlewalkoutlineless.png" id="2_4066u"]
+[ext_resource type="PackedScene" uid="uid://c62vqcyopdbgu" path="res://scenes/killzone.tscn" id="2_h1hjk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bymo"]
+atlas = ExtResource("2_4066u")
+region = Rect2(1, 0, 30, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx8wi"]
+atlas = ExtResource("2_4066u")
+region = Rect2(31, 0, 30, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ilyfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bymo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx8wi")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rm5cn"]
+radius = 3.68177
+height = 19.6361
+
+[node name="Beetle" type="Node2D" groups=["enemies"]]
+scale = Vector2(0.814827, 0.814827)
+script = ExtResource("1_0xnko")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.22725)
+scale = Vector2(0.763158, 0.763158)
+sprite_frames = SubResource("SpriteFrames_ilyfo")
+animation = &"walking"
+autoplay = "walking"
+
+[node name="killzone" parent="." instance=ExtResource("2_h1hjk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+rotation = 1.5708
+scale = Vector2(1.05, 1.05)
+shape = SubResource("CapsuleShape2D_rm5cn")
+
+[node name="Left RayCast" type="RayCast2D" parent="."]
+target_position = Vector2(-16, 0)
+
+[node name="Right RayCast" type="RayCast2D" parent="."]
+target_position = Vector2(16, 0)

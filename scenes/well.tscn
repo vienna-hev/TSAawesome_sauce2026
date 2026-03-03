@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqv70novys4pa"]
+
+[ext_resource type="Texture2D" uid="uid://dlxnydj5tqxju" path="res://imports/well.png" id="1_xcgdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1yqa"]
+size = Vector2(4.75, 22.25)
+
+[node name="Well" type="CharacterBody2D"]
+scale = Vector2(3.24654, 3.24654)
+
+[node name="image" type="Sprite2D" parent="."]
+position = Vector2(195, 111)
+texture = ExtResource("1_xcgdi")
+
+[node name="leftcollision" type="CollisionShape2D" parent="."]
+position = Vector2(159.625, 109.125)
+shape = SubResource("RectangleShape2D_g1yqa")
+
+[node name="rightcollision" type="CollisionShape2D" parent="."]
+position = Vector2(191, 109)
+shape = SubResource("RectangleShape2D_g1yqa")

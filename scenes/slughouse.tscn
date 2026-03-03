@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgxp031q8h1cp"]
+
+[ext_resource type="Texture2D" uid="uid://cbavtk3yr2amp" path="res://imports/slug house.png" id="1_vc2eg"]
+[ext_resource type="Texture2D" uid="uid://rev3nxliohge" path="res://imports/blue sluggy2.png" id="2_b378d"]
+[ext_resource type="Texture2D" uid="uid://bulxwko341xhx" path="res://imports/sluggyboi2.png" id="3_navdx"]
+[ext_resource type="Texture2D" uid="uid://c55rhjkoycxu2" path="res://imports/green sluggy2.png" id="4_c13jj"]
+[ext_resource type="Texture2D" uid="uid://dmh1ehf3u3l7a" path="res://imports/purple sluggy2.png" id="5_37i5j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql0r5"]
+size = Vector2(19, 2)
+
+[node name="Slughouse" type="Node2D"]
+
+[node name="bench and stuff" type="CharacterBody2D" parent="."]
+
+[node name="house body" type="Sprite2D" parent="bench and stuff"]
+texture = ExtResource("1_vc2eg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bench and stuff"]
+position = Vector2(-23.5, 13)
+shape = SubResource("RectangleShape2D_ql0r5")
+one_way_collision = true
+
+[node name="yellow slug" type="Sprite2D" parent="."]
+position = Vector2(-19, 10)
+scale = Vector2(0.443541, 0.443541)
+texture = ExtResource("3_navdx")
+
+[node name="blue slug" type="Sprite2D" parent="."]
+position = Vector2(-44, 12.5)
+scale = Vector2(0.676728, 0.676728)
+texture = ExtResource("2_b378d")
+
+[node name="green slug" type="Sprite2D" parent="."]
+position = Vector2(25, 12)
+scale = Vector2(0.84354, 0.84354)
+texture = ExtResource("4_c13jj")
+
+[node name="purple slug" type="Sprite2D" parent="."]
+position = Vector2(6, -4)
+scale = Vector2(0.443541, 0.443541)
+texture = ExtResource("5_37i5j")
+
+[node name="blue slug2" type="Sprite2D" parent="."]
+position = Vector2(35, 13.5)
+scale = Vector2(0.436728, 0.436728)
+texture = ExtResource("2_b378d")
+
+[node name="yellow slug2" type="Sprite2D" parent="."]
+position = Vector2(26, 9.32)
+scale = Vector2(0.283541, 0.283541)
+texture = ExtResource("3_navdx")
+
+[node name="green slug2" type="Sprite2D" parent="."]
+position = Vector2(-55, 14.5)
+scale = Vector2(0.36354, 0.36354)
+texture = ExtResource("4_c13jj")

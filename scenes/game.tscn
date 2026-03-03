@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca35kk8bx6m2d"]
+
+[ext_resource type="PackedScene" uid="uid://r0sdwp6lvtq3" path="res://scenes/main_menu.tscn" id="1_wxjql"]
+[ext_resource type="AudioStream" uid="uid://cp16f60nfv4um" path="res://imports/slug song.wav" id="2_ivq4s"]
+[ext_resource type="Script" path="res://scripts/audio_stream_player.gd" id="3_877f6"]
+
+[node name="Game" type="Node"]
+
+[node name="Main Menu" parent="." instance=ExtResource("1_wxjql")]
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("2_ivq4s")
+script = ExtResource("3_877f6")

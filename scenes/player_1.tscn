@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://s3tkehbybxvy"]
+
+[ext_resource type="Script" path="res://scripts/player_1.gd" id="1_ml7m4"]
+[ext_resource type="Texture2D" uid="uid://d35el5cbkllaf" path="res://imports/sluggyboi.png" id="2_v31t8"]
+[ext_resource type="Texture2D" uid="uid://dmy22nroculva" path="res://imports/jumping sluggy.png" id="3_eqk46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chsu1"]
+atlas = ExtResource("2_v31t8")
+region = Rect2(1, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mj14"]
+atlas = ExtResource("2_v31t8")
+region = Rect2(17, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1guq"]
+atlas = ExtResource("3_eqk46")
+region = Rect2(4, 0, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lejan"]
+atlas = ExtResource("2_v31t8")
+region = Rect2(1, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10bwy"]
+atlas = ExtResource("2_v31t8")
+region = Rect2(17, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx2y5"]
+atlas = ExtResource("2_v31t8")
+region = Rect2(33, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytjk0"]
+atlas = ExtResource("2_v31t8")
+region = Rect2(49, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odtko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chsu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mj14")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1guq")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lejan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10bwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx2y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytjk0")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iow47"]
+radius = 5.16372
+height = 14.2697
+
+[node name="Player 1" type="CharacterBody2D" groups=["player1"]]
+z_index = 5
+scale = Vector2(1.96221, 1.96221)
+collision_layer = 2
+script = ExtResource("1_ml7m4")
+
+[node name="AnimatedSprite1" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_odtko")
+animation = &"idle"
+autoplay = "idle"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.50963, 3.56741)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iow47")
+one_way_collision_margin = 0.0

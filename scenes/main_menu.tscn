@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://r0sdwp6lvtq3"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f0rcr"]
+[ext_resource type="FontFile" uid="uid://c02upocixh8qw" path="res://imports/Silkscreen-Regular.ttf" id="2_knul5"]
+[ext_resource type="Texture2D" uid="uid://distetqqhsm52" path="res://imports/Menu.png" id="3_ka16l"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_10x3l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4yrv"]
+font = ExtResource("2_knul5")
+font_size = 60
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f0rcr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_10x3l")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -160.0
+offset_right = 60.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Sluggy Odyssey"
+label_settings = SubResource("LabelSettings_i4yrv")
+
+[node name="two player button" type="Button" parent="MarginContainer/VBoxContainer"]
+z_index = 5
+layout_mode = 2
+focus_neighbor_top = NodePath("../four player button")
+text = "2 player"
+
+[node name="three player button" type="Button" parent="MarginContainer/VBoxContainer"]
+z_index = 5
+layout_mode = 2
+text = "3 player"
+
+[node name="four player button" type="Button" parent="MarginContainer/VBoxContainer"]
+z_index = 5
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../two player button")
+text = "4 player"
+
+[node name="Menu" type="Sprite2D" parent="."]
+position = Vector2(574, 307.5)
+scale = Vector2(1.80313, 1.89722)
+texture = ExtResource("3_ka16l")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/two player button" to="." method="_on_two_player_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/three player button" to="." method="_on_three_player_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/four player button" to="." method="_on_four_player_button_pressed"]
