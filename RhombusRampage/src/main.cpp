@@ -293,6 +293,10 @@ int main(int argc, char* argv[]) {
 										bossHealth = 256;
 										bossDir = 0x3;
 
+										player.setFrame(0);
+										sword.setFrame(0);
+										boss.setFrame(0);
+
 										newTex = "assets/textures/title.bmp";
 										break;
 									default:
